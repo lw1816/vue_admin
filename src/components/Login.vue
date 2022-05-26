@@ -77,11 +77,12 @@ export default {
     resetLoginForm(){
       this.$refs.loginFormRef.resetFields()
     },
+    //点击登录按钮
     login(){
   this.$refs['loginFormRef'].validate(async(valid) => {
          if (valid) {
            const {data:res}=await this.$http.post('login',this.logForm)
-           console.log(res)
+          //  console.log(res)
            if (res.meta.status!==200) return this.$message.error('登录失败!')
            this.$message.success('登录成功')
            //将登陆成功后的token,保存到客户端的sessionStorage中
